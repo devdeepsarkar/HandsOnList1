@@ -1,0 +1,65 @@
+/*
+============================================================================================
+ * Name: 8.c 
+ * Author: Devdeep Sarkar
+ * Description: Write a program to open a file in read only mode, read line by line and display each line as it is read.
+		Close the file when end of file is reached.
+ * Date: 23rd Aug, 2025
+=============================================================================================
+*/
+
+
+
+#include <stdio.h>
+#include <stdlib.h> // 
+#include <unistd.h> // for read/write system call
+#include <fcntl.h> // for open() system call
+#include <sys/stat.h> // for file permission
+
+int main() {
+	int fd;
+	int Buf_size = 1000;
+	char buffer[Buf_size];
+	ssize_t size_read;
+
+	char line[Buf_size];
+	int length = 0;
+	
+	fd = open("file8.txt", O_RDONLY);		
+	// reading from file line by line
+	while ((size_read = read(fd, buffer, sizeof(buffer))) > 0) {
+		for (int i=0; i<size_read; i++) {
+			line[length] = buffer[i];
+			length++;
+
+			// stdout if encountered \n
+			if (buffer[i] == '\n') {
+				write(1, line, length);
+				length = 0;
+			}
+		}
+	}
+
+	if (length > 0) {
+		write(1, line, length);
+	}
+
+	close(fd);
+
+	return 0;
+}
+
+
+
+/*
+ 	devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./8_exe
+Sample text in English is utilized in a variety of fields, helping to streamline processes, ensure readability, and provide a visual idea of how the final content will appear. Below are some key areas where it’s commonly used: 
+1. Design and Layout Testing 
+Graphic designers and publishers often use sample text to test layouts and ensure that the design works well with the content. Whether it’s a website, brochure, or book, sample text helps in assessing how readable the content will be once the final text is added. 
+2. Web Development 
+In web development, developers use sample text to see how text blocks will look within the layout. This is particularly useful when creating templates, ensuring the design is responsive and readable across various screen sizes. 
+3. Content Creation and Proofreading 
+For content creators, sample text can serve as a tool for practicing language skills or testing the flow of writing. Similarly, proofreaders may use it to practice checking for grammatical errors or formatting consistency. 
+4. Software Development 
+Sample text in English is also used in software development for testing user interfaces. For example, when developing text-editing software or word processors, placeholder text helps in ensuring that the software correctly handles formatting, text wrapping, and more.
+ */
