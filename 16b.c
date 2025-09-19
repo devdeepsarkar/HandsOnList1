@@ -50,14 +50,14 @@ int main(int argc, char *argv[]){
 
 /*
 Terminal 1:
-	devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./16b_exe ../SampleText.txt
+	devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./16b_exe ../newfile16.txt
 		Acquiring Read Lock
 		Read lock Acquired
 		Press enter to release lock: 
 
 // Multiple Readers are allowed
 Terminal 2:
-        devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./16b_exe ../SampleText.txt
+        devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./16b_exe ../newfile16.txt
                 Acquiring Read Lock
                 Read lock Acquired
                 Press enter to release lock:
