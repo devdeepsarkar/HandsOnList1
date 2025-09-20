@@ -48,8 +48,9 @@ int main() {
 
 
 /*
-devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ ./29_exe
+devdeep@devdeep-VivoBook-ASUSLaptop-X515JA-X515JA:~/software_systems/handsOnList1$ sudo ./29
+[sudo] password for devdeep: 
 Current policy: SCHED_OTHER
-sched_setscheduler SCHED_FIFO: Operation not permitted
-sched_setscheduler SCHED_RR: Operation not permitted
+Changed policy to SCHED_FIFO
+Changed policy to SCHED_RR
 */
